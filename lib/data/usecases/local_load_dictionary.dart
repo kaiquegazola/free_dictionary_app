@@ -20,7 +20,7 @@ class LocalLoadDictionary implements LoadDictionary {
       return dictionary.keys.toList();
     } catch (error) {
       if (error is DictionaryError) rethrow;
-      
+
       if (error.toString().contains('Unable to load asset')) {
         throw DictionaryFileNotFoundError();
       }
