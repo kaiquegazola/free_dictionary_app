@@ -15,7 +15,7 @@ class BadRequest extends HttpError {
 
 class BusinessError extends HttpError {
   BusinessError({this.code, super.message})
-    : super(statusCode: HttpStatusCode.unprocessableEntity);
+      : super(statusCode: HttpStatusCode.unprocessableEntity);
 
   final String? code;
 }
@@ -46,5 +46,5 @@ class TimeoutError extends HttpError {
 
 class NoContentError extends HttpError {
   NoContentError({String? message})
-    : super(statusCode: HttpStatusCode.noContent);
+      : super(statusCode: HttpStatusCode.noContent);
 }

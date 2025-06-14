@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:free_dictionary_app/core/core.dart';
-import 'package:free_dictionary_app/domain/domain.dart';
+import 'package:free_dictionary/core/core.dart';
+import 'package:free_dictionary/domain/domain.dart';
 
 class LocalLoadDictionary implements LoadDictionary {
   @override

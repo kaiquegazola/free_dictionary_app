@@ -1,10 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:free_dictionary/core/core.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:free_dictionary_app/core/core.dart';
 
 class DioHttpClient implements HttpClient {
-  late final Dio _dio;
-
   DioHttpClient({String? baseUrl}) {
     _dio = Dio(
       BaseOptions(
@@ -25,6 +23,7 @@ class DioHttpClient implements HttpClient {
       ),
     );
   }
+  late final Dio _dio;
 
   @override
   Future<Map<String, dynamic>> get(String url) async {
