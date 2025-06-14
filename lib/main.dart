@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:free_dictionary_app/di/service_locator.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
   runApp(const MyApp());
 }
 
