@@ -165,7 +165,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
           return DetailsNavigationBar(
             currentPage: _currentPage,
             totalPages: widget.store.words.length,
-            onBack: () => context.pop(),
             onNext: () {
               _pageController.nextPage(
                 duration: const Duration(milliseconds: 300),

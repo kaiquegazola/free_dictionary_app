@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 
 import '../home_store.dart';
 
@@ -20,7 +21,7 @@ class ViewTypeToggle extends StatelessWidget {
         ),
         onPressed: store.toggleViewType,
         label: Text(
-          store.isGridView ? 'Show as list' : 'Show as grid',
+          store.isGridView ? l10n.showAsList : l10n.showAsGrid,
         ),
       ),
     );

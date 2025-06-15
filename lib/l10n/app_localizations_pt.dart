@@ -89,4 +89,36 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get antonymsLabel => 'Antônimos:';
+
+  @override
+  String get clear => 'Limpar';
+
+  @override
+  String get previous => 'Anterior';
+
+  @override
+  String get next => 'Próximo';
+
+  @override
+  String get brazilFlag => '🇧🇷';
+
+  @override
+  String get usaFlag => '🇺🇸';
+
+  @override
+  String get showAsList => 'Mostrar como lista';
+
+  @override
+  String get showAsGrid => 'Mostrar como grade';
+
+  @override
+  String favoriteWordsCount(int count) {
+    return '$count palavras favoritas';
+  }
+
+  @override
+  String get noFavoriteWords => 'Nenhuma palavra favorita';
+
+  @override
+  String get addFavoritesToSeeHere => 'Adicione palavras aos favoritos para vê-las aqui';
 }

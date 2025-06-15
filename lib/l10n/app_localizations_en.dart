@@ -89,4 +89,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get antonymsLabel => 'Antonyms:';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
+  String get previous => 'Previous';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get brazilFlag => '🇧🇷';
+
+  @override
+  String get usaFlag => '🇺🇸';
+
+  @override
+  String get showAsList => 'Show as list';
+
+  @override
+  String get showAsGrid => 'Show as grid';
+
+  @override
+  String favoriteWordsCount(int count) {
+    return '$count favorite words';
+  }
+
+  @override
+  String get noFavoriteWords => 'No favorite words';
+
+  @override
+  String get addFavoritesToSeeHere => 'Add words to favorites to see them here';
 }

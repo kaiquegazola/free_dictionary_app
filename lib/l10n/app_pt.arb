@@ -38,5 +38,22 @@
   "noWordsFound": "Nenhuma palavra encontrada",
   "exampleLabel": "Exemplo:",
   "synonymsLabel": "Sinônimos:",
-  "antonymsLabel": "Antônimos:"
+  "antonymsLabel": "Antônimos:",
+  "clear": "Limpar",
+  "previous": "Anterior",
+  "next": "Próximo",
+  "brazilFlag": "🇧🇷",
+  "usaFlag": "🇺🇸",
+  "showAsList": "Mostrar como lista",
+  "showAsGrid": "Mostrar como grade",
+  "favoriteWordsCount": "{count} palavras favoritas",
+  "@favoriteWordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noFavoriteWords": "Nenhuma palavra favorita",
+  "addFavoritesToSeeHere": "Adicione palavras aos favoritos para vê-las aqui"
 }

@@ -33,23 +33,21 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ViewTypeToggle(store: widget.store),
-              ],
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ViewTypeToggle(store: widget.store),
+            ],
+          ),
+          Expanded(
+            child: WordsView(
+              store: widget.store,
+              onWordTap: _onWordTap,
             ),
-            Expanded(
-              child: WordsView(
-                store: widget.store,
-                onWordTap: _onWordTap,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

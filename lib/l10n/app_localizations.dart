@@ -250,6 +250,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Antonyms:'**
   String get antonymsLabel;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
+  /// No description provided for @previous.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previous;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @brazilFlag.
+  ///
+  /// In en, this message translates to:
+  /// **'🇧🇷'**
+  String get brazilFlag;
+
+  /// No description provided for @usaFlag.
+  ///
+  /// In en, this message translates to:
+  /// **'🇺🇸'**
+  String get usaFlag;
+
+  /// No description provided for @showAsList.
+  ///
+  /// In en, this message translates to:
+  /// **'Show as list'**
+  String get showAsList;
+
+  /// No description provided for @showAsGrid.
+  ///
+  /// In en, this message translates to:
+  /// **'Show as grid'**
+  String get showAsGrid;
+
+  /// No description provided for @favoriteWordsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} favorite words'**
+  String favoriteWordsCount(int count);
+
+  /// No description provided for @noFavoriteWords.
+  ///
+  /// In en, this message translates to:
+  /// **'No favorite words'**
+  String get noFavoriteWords;
+
+  /// No description provided for @addFavoritesToSeeHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Add words to favorites to see them here'**
+  String get addFavoritesToSeeHere;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

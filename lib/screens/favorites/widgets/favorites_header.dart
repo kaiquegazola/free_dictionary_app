@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 
 class FavoritesHeader extends StatelessWidget {
   const FavoritesHeader({
@@ -12,24 +12,19 @@ class FavoritesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
-          Expanded(
-            child: Text(
-              '$favoriteCount palavras favoritas',
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
-            ),
+          Text(
+            l10n.favoriteWordsCount(favoriteCount),
+            style: Theme.of(context).textTheme.titleLarge,
           ),
-          TextButton.icon(
+          const Spacer(),
+          FilledButton.icon(
             onPressed: onClear,
-            icon: Icon(FontAwesomeIcons.trash),
-            label: Text('Limpar'),
+            label: Text(l10n.clear),
+            icon: const Icon(Icons.delete_outline),
           ),
         ],
       ),

@@ -38,5 +38,22 @@
   "noWordsFound": "No words found",
   "exampleLabel": "Example:",
   "synonymsLabel": "Synonyms:",
-  "antonymsLabel": "Antonyms:"
+  "antonymsLabel": "Antonyms:",
+  "clear": "Clear",
+  "previous": "Previous",
+  "next": "Next",
+  "brazilFlag": "🇧🇷",
+  "usaFlag": "🇺🇸",
+  "showAsList": "Show as list",
+  "showAsGrid": "Show as grid",
+  "favoriteWordsCount": "{count} favorite words",
+  "@favoriteWordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noFavoriteWords": "No favorite words",
+  "addFavoritesToSeeHere": "Add words to favorites to see them here"
 }

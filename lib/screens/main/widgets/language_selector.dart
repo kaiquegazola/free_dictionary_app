@@ -20,7 +20,7 @@ class LanguageSelector extends StatelessWidget {
           value: const Locale('pt', 'BR'),
           child: Row(
             children: [
-              Text('🇧🇷'),
+              Text(l10n.brazilFlag),
               const SizedBox(width: 8),
               Text(l10n.portuguese),
               if (store.currentLocale.languageCode == 'pt') const Spacer(),
@@ -33,7 +33,7 @@ class LanguageSelector extends StatelessWidget {
           value: const Locale('en', 'US'),
           child: Row(
             children: [
-              Text('🇺🇸'),
+              Text(l10n.usaFlag),
               const SizedBox(width: 8),
               Text(l10n.english),
               if (store.currentLocale.languageCode == 'en') const Spacer(),
