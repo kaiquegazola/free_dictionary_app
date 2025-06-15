@@ -10,6 +10,7 @@ final appRouter = GoRouter(
       path: '/',
       builder: (context, state) => MainScreen(
         mainStore: getIt(),
+        homeStore: getIt(),
         historyStore: getIt(),
         favoritesStore: getIt(),
       ),

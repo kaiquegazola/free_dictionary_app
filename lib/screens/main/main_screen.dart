@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:free_dictionary/l10n/l10n.dart';
-import 'package:free_dictionary/screens/favorites/favorites_store.dart';
-import 'package:free_dictionary/screens/history/history_store.dart';
+import 'package:free_dictionary/screens/screens.dart';
 
-import 'main_store.dart';
 import 'tab_options.dart';
 import 'widgets/language_selector.dart';
 import 'widgets/main_tab_bar.dart';
@@ -13,11 +11,13 @@ class MainScreen extends StatefulWidget {
   const MainScreen({
     super.key,
     required this.mainStore,
+    required this.homeStore,
     required this.historyStore,
     required this.favoritesStore,
   });
 
   final MainStore mainStore;
+  final HomeStore homeStore;
   final HistoryStore historyStore;
   final FavoritesStore favoritesStore;
 
@@ -40,12 +40,6 @@ class _MainScreenState extends State<MainScreen>
     _tabController.addListener(_handleTabChange);
   }
 
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
   void _handleTabChange() {
     if (!_tabController.indexIsChanging) {
       widget.mainStore.setCurrentIndex(_tabController.index);
@@ -65,9 +59,16 @@ class _MainScreenState extends State<MainScreen>
       ),
       body: MainTabView(
         controller: _tabController,
+        homeStore: widget.homeStore,
         historyStore: widget.historyStore,
         favoritesStore: widget.favoritesStore,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 }

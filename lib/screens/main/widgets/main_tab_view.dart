@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:free_dictionary/screens/favorites/favorites_screen.dart';
-import 'package:free_dictionary/screens/favorites/favorites_store.dart';
-import 'package:free_dictionary/screens/history/history_screen.dart';
-import 'package:free_dictionary/screens/history/history_store.dart';
-import 'package:free_dictionary/screens/home/home_screen.dart';
+import 'package:free_dictionary/screens/favorites/favorites.dart';
+import 'package:free_dictionary/screens/history/history.dart';
+import 'package:free_dictionary/screens/home/home.dart';
 
 class MainTabView extends StatelessWidget {
   const MainTabView({
     super.key,
     required this.controller,
+    required this.homeStore,
     required this.historyStore,
     required this.favoritesStore,
   });
 
+  final HomeStore homeStore;
   final TabController controller;
   final HistoryStore historyStore;
   final FavoritesStore favoritesStore;
@@ -22,7 +22,7 @@ class MainTabView extends StatelessWidget {
     return TabBarView(
       controller: controller,
       children: [
-        HomeScreen(),
+        HomeScreen(store: homeStore),
         HistoryScreen(historyStore: historyStore),
         FavoritesScreen(favoritesStore: favoritesStore),
       ],
