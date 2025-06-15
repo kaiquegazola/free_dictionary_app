@@ -121,4 +121,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get addFavoritesToSeeHere => 'Adicione palavras aos favoritos para vê-las aqui';
+
+  @override
+  String get noFavorites => 'Nenhuma palavra favorita ainda';
+
+  @override
+  String get noHistory => 'Nenhum histórico de busca ainda';
 }

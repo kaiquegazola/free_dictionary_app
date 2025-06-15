@@ -23,4 +23,4 @@ class MeaningModel extends MeaningEntity {
           definitions.map((e) => (e as DefinitionModel).toJson()).toList(),
     };
   }
-} 
+}

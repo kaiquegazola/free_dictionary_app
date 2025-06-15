@@ -45,6 +45,7 @@ class _MainScreenState extends State<MainScreen>
   void _handleTabChange() {
     if (!_tabController.indexIsChanging) {
       widget.mainStore.setCurrentIndex(_tabController.index);
+      PrimaryScrollController.of(context).jumpTo(0);
     }
   }
 

@@ -55,5 +55,7 @@
     }
   },
   "noFavoriteWords": "No favorite words",
-  "addFavoritesToSeeHere": "Add words to favorites to see them here"
+  "addFavoritesToSeeHere": "Add words to favorites to see them here",
+  "noFavorites": "No favorite words yet",
+  "noHistory": "No search history yet"
 }

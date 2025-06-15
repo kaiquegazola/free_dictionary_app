@@ -1,28 +1,31 @@
+import 'package:free_dictionary/domain/domain.dart';
 import 'package:mobx/mobx.dart';
 
 part 'history_store.g.dart';
 
-class HistoryStore = _HistoryStore with _$HistoryStore;
+class HistoryStore = _HistoryStoreBase with _$HistoryStore;
 
-abstract class _HistoryStore with Store {
+abstract class _HistoryStoreBase with Store {
+  _HistoryStoreBase({
+    required this.loadHistory,
+  });
+
+  final LoadHistory loadHistory;
+
   @observable
-  ObservableList<String> searchHistory = ObservableList<String>();
+  ObservableList<String> history = ObservableList<String>();
+
+  @observable
+  bool isLoading = false;
 
   @action
-  void addToHistory(String word) {
-    if (searchHistory.contains(word)) {
-      searchHistory.remove(word);
+  Future<void> loadHistoryWords() async {
+    isLoading = true;
+    try {
+      final result = await loadHistory.call();
+      history = ObservableList.of(result);
+    } finally {
+      isLoading = false;
     }
-    searchHistory.insert(0, word);
-  }
-
-  @action
-  void removeFromHistory(String word) {
-    searchHistory.remove(word);
-  }
-
-  @action
-  void clearHistory() {
-    searchHistory.clear();
   }
 }

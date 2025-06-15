@@ -19,4 +19,4 @@ class NoInternetErrorWidget extends StatelessWidget {
       onButtonPressed: onTryAgain,
     );
   }
-} 
+}

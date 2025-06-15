@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 
 import 'definition_entity.dart';
 
-
 class MeaningEntity extends Equatable {
   const MeaningEntity({
     required this.partOfSpeech,

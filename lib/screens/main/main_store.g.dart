@@ -9,14 +9,6 @@ part of 'main_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$MainStore on _MainStore, Store {
-  Computed<Locale>? _$currentLocaleComputed;
-
-  @override
-  Locale get currentLocale =>
-      (_$currentLocaleComputed ??= Computed<Locale>(() => super.currentLocale,
-              name: '_MainStore.currentLocale'))
-          .value;
-
   late final _$currentIndexAtom =
       Atom(name: '_MainStore.currentIndex', context: context);
 
@@ -61,8 +53,7 @@ mixin _$MainStore on _MainStore, Store {
   @override
   String toString() {
     return '''
-currentIndex: ${currentIndex},
-currentLocale: ${currentLocale}
+currentIndex: ${currentIndex}
     ''';
   }
 }

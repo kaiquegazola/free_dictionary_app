@@ -8,9 +8,17 @@ part 'details_store.g.dart';
 class DetailsStore = _DetailsStoreBase with _$DetailsStore;
 
 abstract class _DetailsStoreBase with Store {
-  final LoadDictionary loadDictionary;
+  _DetailsStoreBase({
+    required this.loadDictionary,
+    required this.saveHistory,
+    required this.isFavorited,
+    required this.saveFavorite,
+  });
 
-  _DetailsStoreBase({required this.loadDictionary});
+  final LoadDictionary loadDictionary;
+  final SaveHistory saveHistory;
+  final IsFavorited isFavorited;
+  final SaveFavorite saveFavorite;
 
   @observable
   List<WordEntity> words = [];
@@ -27,6 +35,9 @@ abstract class _DetailsStoreBase with Store {
   @observable
   bool hasNotFound = false;
 
+  @observable
+  bool isFavorite = false;
+
   @action
   void _resetStates() {
     hasNoInternet = false;
@@ -41,8 +52,10 @@ abstract class _DetailsStoreBase with Store {
     isLoading = true;
 
     try {
+      await saveHistory.call(query);
       final result = await loadDictionary.call(query);
       words = result;
+      isFavorite = await isFavorited.call(query);
     } on GenericException catch (error) {
       if (error is NoInternetError) {
         hasNoInternet = true;
@@ -54,5 +67,11 @@ abstract class _DetailsStoreBase with Store {
     } finally {
       isLoading = false;
     }
+  }
+
+  @action
+  Future<void> toggleFavorite(String word) async {
+    await saveFavorite.call(word);
+    isFavorite = await isFavorited.call(word);
   }
 }

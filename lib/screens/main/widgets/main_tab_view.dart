@@ -20,11 +20,12 @@ class MainTabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBarView(
+      clipBehavior: Clip.none,
       controller: controller,
       children: [
         HomeScreen(store: homeStore),
-        HistoryScreen(historyStore: historyStore),
-        FavoritesScreen(favoritesStore: favoritesStore),
+        HistoryScreen(store: historyStore),
+        FavoritesScreen(store: favoritesStore),
       ],
     );
   }

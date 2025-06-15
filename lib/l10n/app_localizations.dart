@@ -310,6 +310,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add words to favorites to see them here'**
   String get addFavoritesToSeeHere;
+
+  /// No description provided for @noFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'No favorite words yet'**
+  String get noFavorites;
+
+  /// No description provided for @noHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'No search history yet'**
+  String get noHistory;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

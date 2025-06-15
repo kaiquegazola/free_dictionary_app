@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:free_dictionary/l10n/l10n.dart';
 
 class ErrorView extends StatelessWidget {
-  final String error;
-  final VoidCallback onRetry;
-
   const ErrorView({
     super.key,
     required this.error,
     required this.onRetry,
   });
+  final String error;
+  final VoidCallback onRetry;
 
   @override
   Widget build(BuildContext context) {
@@ -30,4 +29,4 @@ class ErrorView extends StatelessWidget {
       ),
     );
   }
-} 
+}

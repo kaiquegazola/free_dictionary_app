@@ -19,4 +19,4 @@ class ServerErrorWidget extends StatelessWidget {
       onButtonPressed: onTryAgain,
     );
   }
-} 
+}

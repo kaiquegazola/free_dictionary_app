@@ -22,4 +22,4 @@ class WordNotFound extends StatelessWidget {
       onButtonPressed: onBack,
     );
   }
-} 
+}

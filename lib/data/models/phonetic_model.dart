@@ -19,4 +19,4 @@ class PhoneticModel extends PhoneticEntity {
       'audio': audio,
     };
   }
-} 
+}

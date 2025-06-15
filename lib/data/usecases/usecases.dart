@@ -1,2 +1,9 @@
+export 'local_is_favorited.dart';
+export 'local_load_current_language.dart';
+export 'local_load_favorites.dart';
+export 'local_load_history.dart';
 export 'local_load_words.dart';
+export 'local_save_current_language.dart';
+export 'local_save_favorite.dart';
+export 'local_save_history.dart';
 export 'remote_load_dictionary.dart';

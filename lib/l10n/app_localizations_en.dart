@@ -121,4 +121,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addFavoritesToSeeHere => 'Add words to favorites to see them here';
+
+  @override
+  String get noFavorites => 'No favorite words yet';
+
+  @override
+  String get noHistory => 'No search history yet';
 }

@@ -75,10 +75,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
           onPressed: () => context.pop(),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.favorite_border),
-            onPressed: () {
-              // TODO: Implement favorite
+          Observer(
+            builder: (_) {
+              return IconButton(
+                icon: Icon(
+                  widget.store.isFavorite ? Icons.favorite : Icons.favorite_border,
+                ),
+                onPressed: () => widget.store.toggleFavorite(widget.word),
+              );
             },
           ),
         ],

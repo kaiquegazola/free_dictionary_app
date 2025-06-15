@@ -9,9 +9,7 @@ final l10nNotifier = ValueNotifier<AppLocalizations>(
 
 AppLocalizations get l10n => l10nNotifier.value;
 
-void changeLanguage(Locale locale){
+void changeLanguage(Locale locale) {
   l10nNotifier.value = lookupAppLocalizations(locale);
   currentLocale.value = locale;
 }
-
-

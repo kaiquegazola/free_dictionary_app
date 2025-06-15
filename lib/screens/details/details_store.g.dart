@@ -89,12 +89,36 @@ mixin _$DetailsStore on _DetailsStoreBase, Store {
     });
   }
 
+  late final _$isFavoriteAtom =
+      Atom(name: '_DetailsStoreBase.isFavorite', context: context);
+
+  @override
+  bool get isFavorite {
+    _$isFavoriteAtom.reportRead();
+    return super.isFavorite;
+  }
+
+  @override
+  set isFavorite(bool value) {
+    _$isFavoriteAtom.reportWrite(value, super.isFavorite, () {
+      super.isFavorite = value;
+    });
+  }
+
   late final _$loadWordAsyncAction =
       AsyncAction('_DetailsStoreBase.loadWord', context: context);
 
   @override
   Future<void> loadWord(String query) {
     return _$loadWordAsyncAction.run(() => super.loadWord(query));
+  }
+
+  late final _$toggleFavoriteAsyncAction =
+      AsyncAction('_DetailsStoreBase.toggleFavorite', context: context);
+
+  @override
+  Future<void> toggleFavorite(String word) {
+    return _$toggleFavoriteAsyncAction.run(() => super.toggleFavorite(word));
   }
 
   late final _$_DetailsStoreBaseActionController =
@@ -118,7 +142,8 @@ words: ${words},
 isLoading: ${isLoading},
 hasNoInternet: ${hasNoInternet},
 hasServerError: ${hasServerError},
-hasNotFound: ${hasNotFound}
+hasNotFound: ${hasNotFound},
+isFavorite: ${isFavorite}
     ''';
   }
 }

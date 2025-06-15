@@ -88,4 +88,4 @@ class WordMeanings extends StatelessWidget {
       }).toList(),
     );
   }
-} 
+}
