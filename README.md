@@ -13,7 +13,7 @@ A modern, user-friendly dictionary application built with Flutter that helps you
 ## Preview
 
 <div align="center">
-  <video src="https://github.com/kaiquegazola/free_dictionary_app/usage.webm" width="300" />
+  <video src="https://github.com/kaiquegazola/free_dictionary_app/usage.mp4" width="300"></video>
 </div>
 
 ## Getting Started
