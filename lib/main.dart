@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
     return L10nInitializer(
       builder: (context, locale) {
         return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           locale: locale,
           title: 'Free Dictionary',
           theme: ThemeData(

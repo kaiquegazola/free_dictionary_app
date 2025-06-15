@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:free_dictionary/core/core.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'http_response.dart';
@@ -14,7 +16,25 @@ class DioHttpClient implements HttpClient {
       ),
     );
 
-    _dio.interceptors.add(
+    _setupInterceptors();
+  }
+  late final Dio _dio;
+  late final CacheStore _cacheStore;
+  late final CacheOptions _cacheOptions;
+
+  Future<void> _setupInterceptors() async {
+    final dir = await getTemporaryDirectory();
+    _cacheStore = MemCacheStore();
+    
+    _cacheOptions = CacheOptions(
+      store: _cacheStore,
+      policy: CachePolicy.forceCache,
+      maxStale: const Duration(days: 7),
+      priority: CachePriority.normal,
+    );
+
+    _dio.interceptors.addAll([
+      DioCacheInterceptor(options: _cacheOptions),
       PrettyDioLogger(
         requestHeader: true,
         requestBody: true,
@@ -23,14 +43,18 @@ class DioHttpClient implements HttpClient {
         error: true,
         compact: true,
       ),
-    );
+    ]);
   }
-  late final Dio _dio;
 
   @override
   Future<HttpResponse<T>> get<T>(String url) async {
     try {
-      final response = await _dio.get(url);
+      final response = await _dio.get(
+        url,
+        options: _cacheOptions.copyWith(
+          policy: CachePolicy.forceCache,
+        ).toOptions(),
+      );
 
       return HttpResponse(
         data: _convertData<T>(response),
@@ -52,7 +76,13 @@ class DioHttpClient implements HttpClient {
     Map<String, dynamic>? data,
   }) async {
     try {
-      final response = await _dio.post<T>(url, data: data);
+      final response = await _dio.post<T>(
+        url,
+        data: data,
+        options: _cacheOptions.copyWith(
+          policy: CachePolicy.noCache,
+        ).toOptions(),
+      );
 
       return HttpResponse(
         data: _convertData<T>(response),
