@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:free_dictionary/core/core.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'http_response.dart';
@@ -23,11 +22,8 @@ class DioHttpClient implements HttpClient {
   late final CacheOptions _cacheOptions;
 
   Future<void> _setupInterceptors() async {
-    final dir = await getTemporaryDirectory();
-    _cacheStore = MemCacheStore();
-    
     _cacheOptions = CacheOptions(
-      store: _cacheStore,
+      store: MemCacheStore(),
       policy: CachePolicy.forceCache,
       maxStale: const Duration(days: 7),
       priority: CachePriority.normal,
