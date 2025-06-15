@@ -60,6 +60,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         await _audioPlayer.setUrl(audioUrl);
         _currentAudioUrl = audioUrl;
       }
+      await _audioPlayer.seek(Duration.zero);
       await _audioPlayer.play();
     } catch (e) {
       // Handle error silently
