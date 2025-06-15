@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 import 'package:free_dictionary/screens/main/main_store.dart';
 
 class LanguageSelector extends StatelessWidget {
@@ -21,7 +22,7 @@ class LanguageSelector extends StatelessWidget {
             children: [
               Text('🇧🇷'),
               const SizedBox(width: 8),
-              const Text('Português'),
+              Text(l10n.portuguese),
               if (store.currentLocale.languageCode == 'pt') const Spacer(),
               if (store.currentLocale.languageCode == 'pt')
                 Icon(FontAwesomeIcons.check, size: 16),
@@ -34,7 +35,7 @@ class LanguageSelector extends StatelessWidget {
             children: [
               Text('🇺🇸'),
               const SizedBox(width: 8),
-              const Text('English'),
+              Text(l10n.english),
               if (store.currentLocale.languageCode == 'en') const Spacer(),
               if (store.currentLocale.languageCode == 'en')
                 Icon(FontAwesomeIcons.check, size: 16),

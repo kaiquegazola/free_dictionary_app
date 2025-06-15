@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 
 import '../home_store.dart';
 import 'error_view.dart';
@@ -34,8 +35,8 @@ class WordsView extends StatelessWidget {
         }
 
         if (store.words.isEmpty) {
-          return const Center(
-            child: Text('No words found'),
+          return Center(
+            child: Text(l10n.noWordsFound),
           );
         }
 

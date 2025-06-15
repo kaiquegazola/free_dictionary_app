@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 
 class ErrorState extends StatelessWidget {
   const ErrorState({
@@ -6,7 +7,7 @@ class ErrorState extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.message,
-    this.buttonLabel = 'Try Again',
+    this.buttonLabel,
     this.onButtonPressed,
     this.iconColor,
   });
@@ -14,7 +15,7 @@ class ErrorState extends StatelessWidget {
   final IconData icon;
   final String title;
   final String message;
-  final String buttonLabel;
+  final String? buttonLabel;
   final VoidCallback? onButtonPressed;
   final Color? iconColor;
 
@@ -47,7 +48,7 @@ class ErrorState extends StatelessWidget {
             FilledButton.icon(
               onPressed: onButtonPressed,
               icon: const Icon(Icons.refresh_rounded),
-              label: Text(buttonLabel),
+              label: Text(buttonLabel ?? l10n.tryAgain),
             ),
         ],
       ),

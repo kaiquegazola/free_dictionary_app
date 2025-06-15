@@ -62,8 +62,7 @@ import 'app_localizations_pt.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -71,8 +70,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,8 +82,7 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -145,10 +142,117 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Try Again'**
   String get tryAgain;
+
+  /// No description provided for @wordDefinition.
+  ///
+  /// In en, this message translates to:
+  /// **'Word Definition'**
+  String get wordDefinition;
+
+  /// No description provided for @partOfSpeech.
+  ///
+  /// In en, this message translates to:
+  /// **'Part of Speech'**
+  String get partOfSpeech;
+
+  /// No description provided for @definition.
+  ///
+  /// In en, this message translates to:
+  /// **'Definition'**
+  String get definition;
+
+  /// No description provided for @example.
+  ///
+  /// In en, this message translates to:
+  /// **'Example'**
+  String get example;
+
+  /// No description provided for @synonyms.
+  ///
+  /// In en, this message translates to:
+  /// **'Synonyms'**
+  String get synonyms;
+
+  /// No description provided for @antonyms.
+  ///
+  /// In en, this message translates to:
+  /// **'Antonyms'**
+  String get antonyms;
+
+  /// No description provided for @wordNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Word not found'**
+  String get wordNotFoundTitle;
+
+  /// No description provided for @wordNotFoundMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn\'t find any definitions for \"{word}\"'**
+  String wordNotFoundMessage(String word);
+
+  /// No description provided for @goBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Back'**
+  String get goBack;
+
+  /// No description provided for @noWordFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No word found'**
+  String get noWordFound;
+
+  /// No description provided for @historyScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'History Screen'**
+  String get historyScreen;
+
+  /// No description provided for @portuguese.
+  ///
+  /// In en, this message translates to:
+  /// **'Portuguese'**
+  String get portuguese;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @errorWithMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Error: {message}'**
+  String errorWithMessage(String message);
+
+  /// No description provided for @noWordsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No words found'**
+  String get noWordsFound;
+
+  /// No description provided for @exampleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Example:'**
+  String get exampleLabel;
+
+  /// No description provided for @synonymsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Synonyms:'**
+  String get synonymsLabel;
+
+  /// No description provided for @antonymsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Antonyms:'**
+  String get antonymsLabel;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -157,25 +261,25 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'pt'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'pt'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en':
-      return AppLocalizationsEn();
-    case 'pt':
-      return AppLocalizationsPt();
+    case 'en': return AppLocalizationsEn();
+    case 'pt': return AppLocalizationsPt();
   }
 
   throw FlutterError(
-      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
+  );
 }

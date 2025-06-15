@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 import 'package:free_dictionary/screens/history/history_store.dart';
 
 class HistoryScreen extends StatelessWidget {
@@ -10,8 +11,8 @@ class HistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('History Screen'),
+    return Center(
+      child: Text(l10n.historyScreen),
     );
   }
 }

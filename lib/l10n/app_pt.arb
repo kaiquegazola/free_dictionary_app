@@ -7,19 +7,36 @@
   "noResults": "Nenhum resultado encontrado",
   "error": "Erro",
   "tryAgain": "Tentar Novamente",
-  "searchWords": "Buscar palavras...",
   "wordDefinition": "Definição da Palavra",
-  "phonetic": "Fonética",
-  "origin": "Origem",
   "partOfSpeech": "Classe Gramatical",
   "definition": "Definição",
   "example": "Exemplo",
   "synonyms": "Sinônimos",
   "antonyms": "Antônimos",
-  "playAudio": "Reproduzir áudio",
-  "previous": "Anterior",
-  "next": "Próximo",
-  "wordNotFound": "Palavra não encontrada",
-  "networkError": "Erro de conexão",
-  "loading": "Carregando..."
+  "wordNotFoundTitle": "Palavra não encontrada",
+  "wordNotFoundMessage": "Não encontramos definições para \"{word}\"",
+  "@wordNotFoundMessage": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "goBack": "Voltar",
+  "noWordFound": "Nenhuma palavra encontrada",
+  "historyScreen": "Tela de Histórico",
+  "portuguese": "Português",
+  "english": "Inglês",
+  "errorWithMessage": "Erro: {message}",
+  "@errorWithMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "noWordsFound": "Nenhuma palavra encontrada",
+  "exampleLabel": "Exemplo:",
+  "synonymsLabel": "Sinônimos:",
+  "antonymsLabel": "Antônimos:"
 }

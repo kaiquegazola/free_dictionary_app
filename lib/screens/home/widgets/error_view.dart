@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 
 class ErrorView extends StatelessWidget {
   final String error;
@@ -17,13 +18,13 @@ class ErrorView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Error: $error',
+            l10n.errorWithMessage(error),
             style: const TextStyle(color: Colors.red),
           ),
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: onRetry,
-            child: const Text('Try Again'),
+            child: Text(l10n.tryAgain),
           ),
         ],
       ),

@@ -31,4 +31,62 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tryAgain => 'Try Again';
+
+  @override
+  String get wordDefinition => 'Word Definition';
+
+  @override
+  String get partOfSpeech => 'Part of Speech';
+
+  @override
+  String get definition => 'Definition';
+
+  @override
+  String get example => 'Example';
+
+  @override
+  String get synonyms => 'Synonyms';
+
+  @override
+  String get antonyms => 'Antonyms';
+
+  @override
+  String get wordNotFoundTitle => 'Word not found';
+
+  @override
+  String wordNotFoundMessage(String word) {
+    return 'We couldn\'t find any definitions for \"$word\"';
+  }
+
+  @override
+  String get goBack => 'Go Back';
+
+  @override
+  String get noWordFound => 'No word found';
+
+  @override
+  String get historyScreen => 'History Screen';
+
+  @override
+  String get portuguese => 'Portuguese';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String errorWithMessage(String message) {
+    return 'Error: $message';
+  }
+
+  @override
+  String get noWordsFound => 'No words found';
+
+  @override
+  String get exampleLabel => 'Example:';
+
+  @override
+  String get synonymsLabel => 'Synonyms:';
+
+  @override
+  String get antonymsLabel => 'Antonyms:';
 }

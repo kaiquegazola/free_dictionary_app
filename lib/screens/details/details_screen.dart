@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 import 'package:free_dictionary/widgets/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:just_audio/just_audio.dart';
@@ -110,8 +111,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
           }
 
           if (widget.store.words.isEmpty) {
-            return const Center(
-              child: Text('No word found'),
+            return Center(
+              child: Text(l10n.noWordFound),
             );
           }
 

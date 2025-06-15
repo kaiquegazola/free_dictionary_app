@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:free_dictionary/domain/domain.dart';
+import 'package:free_dictionary/l10n/l10n.dart';
 
 class WordMeanings extends StatelessWidget {
   const WordMeanings({
@@ -28,7 +29,7 @@ class WordMeanings extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
-                meaning.partOfSpeech.toUpperCase(),
+                l10n.partOfSpeech.toUpperCase(),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onPrimaryContainer,
                   fontWeight: FontWeight.bold,
@@ -43,13 +44,13 @@ class WordMeanings extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      '• ${definition.definition}',
+                      '• ${l10n.definition}: ${definition.definition}',
                       style: const TextStyle(fontSize: 16),
                     ),
                     if (definition.example != null) ...[
                       const SizedBox(height: 8),
                       Text(
-                        'Example: "${definition.example}"',
+                        '${l10n.exampleLabel} "${definition.example}"',
                         style: TextStyle(
                           fontSize: 14,
                           color: Theme.of(context).colorScheme.secondary,
@@ -60,7 +61,7 @@ class WordMeanings extends StatelessWidget {
                     if (definition.synonyms.isNotEmpty) ...[
                       const SizedBox(height: 8),
                       Text(
-                        'Synonyms: ${definition.synonyms.join(", ")}',
+                        '${l10n.synonymsLabel} ${definition.synonyms.join(", ")}',
                         style: TextStyle(
                           fontSize: 14,
                           color: Theme.of(context).colorScheme.secondary,
@@ -70,7 +71,7 @@ class WordMeanings extends StatelessWidget {
                     if (definition.antonyms.isNotEmpty) ...[
                       const SizedBox(height: 8),
                       Text(
-                        'Antonyms: ${definition.antonyms.join(", ")}',
+                        '${l10n.antonymsLabel} ${definition.antonyms.join(", ")}',
                         style: TextStyle(
                           fontSize: 14,
                           color: Theme.of(context).colorScheme.error,

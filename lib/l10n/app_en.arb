@@ -6,5 +6,37 @@
   "search": "Search",
   "noResults": "No results found",
   "error": "Error",
-  "tryAgain": "Try Again"
+  "tryAgain": "Try Again",
+  "wordDefinition": "Word Definition",
+  "partOfSpeech": "Part of Speech",
+  "definition": "Definition",
+  "example": "Example",
+  "synonyms": "Synonyms",
+  "antonyms": "Antonyms",
+  "wordNotFoundTitle": "Word not found",
+  "wordNotFoundMessage": "We couldn't find any definitions for \"{word}\"",
+  "@wordNotFoundMessage": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "goBack": "Go Back",
+  "noWordFound": "No word found",
+  "historyScreen": "History Screen",
+  "portuguese": "Portuguese",
+  "english": "English",
+  "errorWithMessage": "Error: {message}",
+  "@errorWithMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "noWordsFound": "No words found",
+  "exampleLabel": "Example:",
+  "synonymsLabel": "Synonyms:",
+  "antonymsLabel": "Antonyms:"
 }
