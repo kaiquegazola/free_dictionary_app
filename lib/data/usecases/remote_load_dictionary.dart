@@ -10,11 +10,13 @@ class RemoteLoadDictionary implements LoadDictionary {
   final HttpClient client;
 
   @override
-  Future<WordEntity> call(String word) async {
-    final response = await client.get(
+  Future<List<WordEntity>> call(String word) async {
+    final response = await client.get<List>(
       'https://api.dictionaryapi.dev/api/v2/entries/en/$word',
     );
 
-    return WordModel.fromJson(response);
+    return List<WordEntity>.from(
+      response.data.map((json) => WordModel.fromJson(json)),
+    );
   }
 }

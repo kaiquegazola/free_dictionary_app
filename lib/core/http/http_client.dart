@@ -1,4 +1,9 @@
+import 'package:free_dictionary/data/data.dart';
+
 abstract class HttpClient {
-  Future<Map<String, dynamic>> get(String url);
-  Future<Map<String, dynamic>> post(String url, {Map<String, dynamic>? data});
+  Future<HttpResponse<T>> get<T>(String url);
+  Future<HttpResponse<T>> post<T>(
+    String url, {
+    Map<String, dynamic>? data,
+  });
 }

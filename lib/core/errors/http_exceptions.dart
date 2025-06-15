@@ -48,3 +48,11 @@ class NoContentError extends HttpError {
   NoContentError({String? message})
       : super(statusCode: HttpStatusCode.noContent);
 }
+
+class ConvertDataError extends GenericException {
+  ConvertDataError({super.message});
+}
+
+class UnknownError extends GenericException {
+  UnknownError({super.message});
+}

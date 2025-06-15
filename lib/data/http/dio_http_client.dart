@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:free_dictionary/core/core.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import 'http_response.dart';
+
 class DioHttpClient implements HttpClient {
   DioHttpClient({String? baseUrl}) {
     _dio = Dio(
@@ -26,26 +28,63 @@ class DioHttpClient implements HttpClient {
   late final Dio _dio;
 
   @override
-  Future<Map<String, dynamic>> get(String url) async {
+  Future<HttpResponse<T>> get<T>(String url) async {
     try {
       final response = await _dio.get(url);
-      return response.data as Map<String, dynamic>;
+
+      return HttpResponse(
+        data: _convertData<T>(response),
+        statusCode: response.statusCode ?? 200,
+        headers: _extractHeaders(response),
+      );
     } on DioException catch (e) {
       throw _handleError(e);
+    } on GenericException catch (_) {
+      rethrow;
+    } catch (e) {
+      throw UnknownError(message: e.toString());
     }
   }
 
   @override
-  Future<Map<String, dynamic>> post(
+  Future<HttpResponse<T>> post<T>(
     String url, {
     Map<String, dynamic>? data,
   }) async {
     try {
-      final response = await _dio.post(url, data: data);
-      return response.data as Map<String, dynamic>;
+      final response = await _dio.post<T>(url, data: data);
+
+      return HttpResponse(
+        data: _convertData<T>(response),
+        statusCode: response.statusCode ?? 200,
+        headers: _extractHeaders(response),
+      );
     } on DioException catch (e) {
       throw _handleError(e);
+    } on GenericException catch (_) {
+      rethrow;
+    } catch (e) {
+      throw UnknownError(message: e.toString());
     }
+  }
+
+  T _convertData<T>(Response response) {
+    try {
+      final convertedData = response.data as T;
+      return convertedData;
+    } catch (e) {
+      throw ConvertDataError(message: e.toString());
+    }
+  }
+
+  Map<String, String> _extractHeaders(Response response) {
+    final headers = <String, String>{};
+    response.headers.forEach((name, values) {
+      if (values.isNotEmpty) {
+        headers[name] = values.first;
+      }
+    });
+    return headers;
   }
 
   GenericException _handleError(DioException error) {
