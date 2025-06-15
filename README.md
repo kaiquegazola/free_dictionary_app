@@ -12,9 +12,7 @@ A modern, user-friendly dictionary application built with Flutter that helps you
 
 ## Preview
 
-<div align="center">
-  <video src="https://github.com/kaiquegazola/free_dictionary_app/usage.mp4" width="300"></video>
-</div>
+https://github.com/user-attachments/assets/846e10a3-12f8-48b4-8a88-fc7a851da624
 
 ## Getting Started
 
