@@ -55,12 +55,12 @@ void setupServiceLocator() {
       localLoadWords: getIt(),
     ),
   );
-  getIt.registerFactory<HistoryStore>(
+  getIt.registerLazySingleton<HistoryStore>(
     () => HistoryStore(
       loadHistory: getIt(),
     ),
   );
-  getIt.registerFactory<FavoritesStore>(
+  getIt.registerLazySingleton<FavoritesStore>(
     () => FavoritesStore(
       isFavorited: getIt(),
       loadFavorites: getIt(),
