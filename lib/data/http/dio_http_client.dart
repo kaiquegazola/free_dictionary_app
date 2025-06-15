@@ -46,9 +46,11 @@ class DioHttpClient implements HttpClient {
     try {
       final response = await _dio.get(
         url,
-        options: _cacheOptions.copyWith(
-          policy: CachePolicy.forceCache,
-        ).toOptions(),
+        options: _cacheOptions
+            .copyWith(
+              policy: CachePolicy.forceCache,
+            )
+            .toOptions(),
       );
 
       return HttpResponse(
@@ -74,9 +76,11 @@ class DioHttpClient implements HttpClient {
       final response = await _dio.post<T>(
         url,
         data: data,
-        options: _cacheOptions.copyWith(
-          policy: CachePolicy.noCache,
-        ).toOptions(),
+        options: _cacheOptions
+            .copyWith(
+              policy: CachePolicy.noCache,
+            )
+            .toOptions(),
       );
 
       return HttpResponse(

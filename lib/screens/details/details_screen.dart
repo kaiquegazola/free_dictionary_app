@@ -80,7 +80,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
             builder: (_) {
               return IconButton(
                 icon: Icon(
-                  widget.store.isFavorite ? Icons.favorite : Icons.favorite_border,
+                  widget.store.isFavorite
+                      ? Icons.favorite
+                      : Icons.favorite_border,
                 ),
                 onPressed: () => widget.store.toggleFavorite(widget.word),
               );

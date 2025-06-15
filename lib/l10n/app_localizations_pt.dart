@@ -120,7 +120,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get noFavoriteWords => 'Nenhuma palavra favorita';
 
   @override
-  String get addFavoritesToSeeHere => 'Adicione palavras aos favoritos para vê-las aqui';
+  String get addFavoritesToSeeHere =>
+      'Adicione palavras aos favoritos para vê-las aqui';
 
   @override
   String get noFavorites => 'Nenhuma palavra favorita ainda';

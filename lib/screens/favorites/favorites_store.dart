@@ -10,11 +10,13 @@ abstract class _FavoritesStoreBase with Store {
     required this.loadFavorites,
     required this.saveFavorite,
     required this.isFavorited,
+    required this.removeFavorite,
   });
 
   final LoadFavorites loadFavorites;
   final SaveFavorite saveFavorite;
   final IsFavorited isFavorited;
+  final RemoveFavorite removeFavorite;
 
   @observable
   ObservableList<String> favorites = ObservableList<String>();
@@ -38,9 +40,10 @@ abstract class _FavoritesStoreBase with Store {
     final isFavorite = await isFavorited.call(word);
     if (isFavorite) {
       favorites.remove(word);
+      await removeFavorite.call(word);
     } else {
       favorites.add(word);
+      await saveFavorite.call(word);
     }
-    await saveFavorite.call(word);
   }
 }

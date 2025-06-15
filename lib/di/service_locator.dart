@@ -41,6 +41,9 @@ void setupServiceLocator() {
   getIt.registerFactory<SaveFavorite>(
     () => LocalSaveFavorite(storage: getIt()),
   );
+  getIt.registerFactory<RemoveFavorite>(
+    () => LocalRemoveFavorite(storage: getIt()),
+  );
   getIt.registerFactory<IsFavorited>(
     () => LocalIsFavorited(storage: getIt()),
   );
@@ -65,6 +68,7 @@ void setupServiceLocator() {
       isFavorited: getIt(),
       loadFavorites: getIt(),
       saveFavorite: getIt(),
+      removeFavorite: getIt(),
     ),
   );
   getIt.registerFactory<DetailsStore>(
