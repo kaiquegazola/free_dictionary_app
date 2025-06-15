@@ -9,12 +9,17 @@ final GetIt getIt = GetIt.instance;
 void setupServiceLocator() {
   getIt.registerLazySingleton<HttpClient>(() => DioHttpClient());
 
-  getIt.registerLazySingleton<LoadDictionary>(() => LocalLoadDictionary());
+  getIt.registerLazySingleton<LoadWords>(() => LocalLoadWords());
+  getIt.registerLazySingleton<LoadDictionary>(
+    () => RemoteLoadDictionary(
+      client: getIt(),
+    ),
+  );
 
   getIt.registerFactory<MainStore>(() => MainStore());
   getIt.registerFactory<HomeStore>(
     () => HomeStore(
-      loadDictionary: getIt(),
+      localLoadWords: getIt(),
     ),
   );
   getIt.registerFactory<HistoryStore>(() => HistoryStore());

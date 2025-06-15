@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:free_dictionary/core/core.dart';
 import 'package:free_dictionary/domain/domain.dart';
 
-class LocalLoadDictionary implements LoadDictionary {
+class LocalLoadWords implements LoadWords {
   @override
   Future<List<String>> call() async {
     try {

@@ -1,3 +1,5 @@
+import 'package:free_dictionary/domain/domain.dart';
+
 abstract class LoadDictionary {
-  Future<List<String>> call();
+  Future<WordEntity> call(String word);
 }

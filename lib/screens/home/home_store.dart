@@ -1,6 +1,5 @@
+import 'package:free_dictionary/domain/domain.dart';
 import 'package:mobx/mobx.dart';
-
-import '../../domain/usecases/load_dictionary.dart';
 
 part 'home_store.g.dart';
 
@@ -8,9 +7,10 @@ class HomeStore = _HomeStore with _$HomeStore;
 
 abstract class _HomeStore with Store {
   _HomeStore({
-    required this.loadDictionary,
+    required this.localLoadWords,
   });
-  final LoadDictionary loadDictionary;
+
+  final LoadWords localLoadWords;
 
   @observable
   ObservableList<String> words = ObservableList<String>();
@@ -34,7 +34,7 @@ abstract class _HomeStore with Store {
     try {
       isLoading = true;
       error = null;
-      final result = await loadDictionary.call();
+      final result = await localLoadWords.call();
       words.clear();
       words.addAll(result);
     } catch (e) {
