@@ -16,7 +16,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     super.initState();
@@ -25,20 +26,26 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              ViewTypeToggle(store: widget.store),
-            ],
-          ),
-          Expanded(
-            child: WordsView(store: widget.store),
-          ),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ViewTypeToggle(store: widget.store),
+              ],
+            ),
+            Expanded(
+              child: WordsView(store: widget.store),
+            ),
+          ],
+        ),
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
