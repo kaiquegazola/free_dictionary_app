@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'home_store.dart';
 import 'widgets/view_type_toggle.dart';
@@ -24,6 +25,10 @@ class _HomeScreenState extends State<HomeScreen>
     widget.store.loadWords();
   }
 
+  void _onWordTap(String word) {
+    context.push('/details/$word');
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -38,7 +43,10 @@ class _HomeScreenState extends State<HomeScreen>
               ],
             ),
             Expanded(
-              child: WordsView(store: widget.store),
+              child: WordsView(
+                store: widget.store,
+                onWordTap: _onWordTap,
+              ),
             ),
           ],
         ),

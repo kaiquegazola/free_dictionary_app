@@ -10,9 +10,11 @@ class WordsView extends StatelessWidget {
   const WordsView({
     super.key,
     required this.store,
+    required this.onWordTap,
   });
 
   final HomeStore store;
+  final void Function(String word) onWordTap;
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +40,16 @@ class WordsView extends StatelessWidget {
         }
 
         if (store.isGridView) {
-          return WordGridView(words: store.words.toList());
+          return WordGridView(
+            words: store.words.toList(),
+            onWordTap: onWordTap,
+          );
         }
 
-        return WordListView(words: store.words.toList());
+        return WordListView(
+          words: store.words.toList(),
+          onWordTap: onWordTap,
+        );
       },
     );
   }

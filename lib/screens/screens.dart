@@ -1,3 +1,4 @@
+export 'details/details.dart';
 export 'favorites/favorites.dart';
 export 'history/history.dart';
 export 'home/home.dart';

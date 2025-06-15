@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class WordGridView extends StatelessWidget {
-  final List<String> words;
-
   const WordGridView({
     super.key,
     required this.words,
+    required this.onWordTap,
   });
+
+  final List<String> words;
+  final void Function(String word) onWordTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +22,18 @@ class WordGridView extends StatelessWidget {
       ),
       itemCount: words.length,
       itemBuilder: (context, index) {
+        final word = words[index];
         return Card(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                words[index],
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge,
+          child: InkWell(
+            onTap: () => onWordTap(word),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  word,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ),
             ),
           ),
@@ -35,4 +41,4 @@ class WordGridView extends StatelessWidget {
       },
     );
   }
-} 
+}

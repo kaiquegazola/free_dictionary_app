@@ -1,7 +1,7 @@
+import 'package:free_dictionary/screens/screens.dart';
 import 'package:go_router/go_router.dart';
 
 import '../di/service_locator.dart';
-import '../screens/main/main_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -13,6 +13,13 @@ final appRouter = GoRouter(
         homeStore: getIt(),
         historyStore: getIt(),
         favoritesStore: getIt(),
+      ),
+    ),
+    GoRoute(
+      path: '/details/:word',
+      builder: (context, state) => DetailsScreen(
+        word: state.pathParameters['word']!,
+        store: getIt(),
       ),
     ),
   ],

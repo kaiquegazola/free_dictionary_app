@@ -17,11 +17,16 @@ void setupServiceLocator() {
   );
 
   getIt.registerFactory<MainStore>(() => MainStore());
-  getIt.registerFactory<HomeStore>(
+  getIt.registerLazySingleton<HomeStore>(
     () => HomeStore(
       localLoadWords: getIt(),
     ),
   );
   getIt.registerFactory<HistoryStore>(() => HistoryStore());
   getIt.registerFactory<FavoritesStore>(() => FavoritesStore());
+  getIt.registerFactory<DetailsStore>(
+    () => DetailsStore(
+      loadDictionary: getIt(),
+    ),
+  );
 }

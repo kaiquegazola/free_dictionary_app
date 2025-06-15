@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class WordListView extends StatelessWidget {
-  final List<String> words;
-
   const WordListView({
     super.key,
     required this.words,
+    required this.onWordTap,
   });
+
+  final List<String> words;
+  final void Function(String word) onWordTap;
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +17,12 @@ class WordListView extends StatelessWidget {
       itemCount: words.length,
       separatorBuilder: (_, __) => const Divider(),
       itemBuilder: (context, index) {
+        final word = words[index];
         return ListTile(
-          title: Text(words[index]),
+          title: Text(word),
+          onTap: () => onWordTap(word),
         );
       },
     );
   }
-} 
+}
