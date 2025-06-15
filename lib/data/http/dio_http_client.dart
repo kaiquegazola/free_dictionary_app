@@ -18,7 +18,6 @@ class DioHttpClient implements HttpClient {
     _setupInterceptors();
   }
   late final Dio _dio;
-  late final CacheStore _cacheStore;
   late final CacheOptions _cacheOptions;
 
   Future<void> _setupInterceptors() async {
