@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:free_dictionary/l10n/app_localizations.dart';
-import 'package:free_dictionary/l10n/l10n.dart';
+
+import 'l10n.dart';
 
 class L10nInitializer extends StatelessWidget {
   const L10nInitializer({
     super.key,
-    required this.child,
+    required this.builder,
   });
-  final Widget child;
+
+  final Widget Function(BuildContext context, Locale locale) builder;
 
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        final localizations = AppLocalizations.of(context);
-        if (localizations != null) {
-          setL10n(localizations);
-        }
-        return child;
-      },
+    return ValueListenableBuilder(
+      valueListenable: currentLocale,
+      builder: (context, locale, _) => builder(context, locale),
     );
   }
 }

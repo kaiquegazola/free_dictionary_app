@@ -1,16 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:free_dictionary/l10n/app_localizations.dart';
-import 'package:free_dictionary/l10n/app_localizations_pt.dart';
+export 'app_localizations.dart';
 
-AppLocalizations get l10n {
-  try {
-    return _currentL10n;
-  } catch (e) {
-    return AppLocalizationsPt();
-  }
+final currentLocale = ValueNotifier<Locale>(const Locale('en', 'US'));
+final l10nNotifier = ValueNotifier<AppLocalizations>(
+  lookupAppLocalizations(currentLocale.value),
+);
+
+AppLocalizations get l10n => l10nNotifier.value;
+
+void changeLanguage(Locale locale){
+  l10nNotifier.value = lookupAppLocalizations(locale);
+  currentLocale.value = locale;
 }
 
-late AppLocalizations _currentL10n;
 
-void setL10n(AppLocalizations localizations) {
-  _currentL10n = localizations;
-}

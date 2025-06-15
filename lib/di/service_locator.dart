@@ -7,8 +7,10 @@ import 'package:get_it/get_it.dart';
 final GetIt getIt = GetIt.instance;
 
 void setupServiceLocator() {
+  // Core
   getIt.registerLazySingleton<HttpClient>(() => DioHttpClient());
 
+  // Data Layer
   getIt.registerLazySingleton<LoadWords>(() => LocalLoadWords());
   getIt.registerLazySingleton<LoadDictionary>(
     () => RemoteLoadDictionary(
@@ -16,6 +18,7 @@ void setupServiceLocator() {
     ),
   );
 
+  // Stores
   getIt.registerFactory<MainStore>(() => MainStore());
   getIt.registerLazySingleton<HomeStore>(
     () => HomeStore(

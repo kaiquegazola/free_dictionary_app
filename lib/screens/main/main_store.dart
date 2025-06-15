@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:free_dictionary/l10n/l10n.dart' as l10n;
 import 'package:mobx/mobx.dart';
+
 import 'tab_options.dart';
 
 part 'main_store.g.dart';
@@ -17,11 +19,10 @@ abstract class _MainStore with Store {
     currentIndex = index;
   }
 
-  @observable
-  Locale currentLocale = const Locale('en', 'US');
+  Locale get currentLocale => l10n.currentLocale.value;
 
   @action
   void changeLocale(Locale locale) {
-    currentLocale = locale;
+    l10n.changeLanguage(locale);
   }
 }
