@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:free_dictionary/l10n/l10n.dart';
 import 'package:free_dictionary/screens/screens.dart';
+import 'package:gap/gap.dart';
 
 import 'tab_options.dart';
 import 'widgets/language_selector.dart';
@@ -49,19 +51,36 @@ class _MainScreenState extends State<MainScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.appTitle),
-        centerTitle: true,
-        actions: [
-          LanguageSelector(store: widget.mainStore),
-        ],
-        bottom: MainTabBar(controller: _tabController),
-      ),
-      body: MainTabView(
-        controller: _tabController,
-        homeStore: widget.homeStore,
-        historyStore: widget.historyStore,
-        favoritesStore: widget.favoritesStore,
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            SliverAppBar(
+              title: Row(
+                children: [
+                  Icon(
+                    FontAwesomeIcons.book,
+                    size: 16,
+                    color: Colors.indigo[800],
+                  ),
+                  Gap(8),
+                  Text(l10n.appTitle),
+                  Spacer(),
+                  LanguageSelector(store: widget.mainStore),
+                ],
+              ),
+              centerTitle: true,
+              pinned: true,
+              floating: true,
+              bottom: MainTabBar(controller: _tabController),
+            ),
+          ];
+        },
+        body: MainTabView(
+          controller: _tabController,
+          homeStore: widget.homeStore,
+          historyStore: widget.historyStore,
+          favoritesStore: widget.favoritesStore,
+        ),
       ),
     );
   }

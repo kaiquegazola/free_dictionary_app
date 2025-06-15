@@ -26,23 +26,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ViewTypeToggle(store: widget.store),
-                ],
-              ),
-            ),
-            Expanded(
-              child: WordsView(store: widget.store),
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ViewTypeToggle(store: widget.store),
+            ],
+          ),
+          Expanded(
+            child: WordsView(store: widget.store),
+          ),
+        ],
       ),
     );
   }
